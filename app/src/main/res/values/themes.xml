@@ -1,0 +1,19 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.FoodExpress" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimaryDark">@color/black</item>
+    </style>
+
+    <style name="Theme.FoodExpress" parent="Base.Theme.FoodExpress">
+        <item name="colorPrimaryDark">@color/black</item>
+    </style>
+
+    <style name="Theme.location" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme attributes if needed -->
+        <item name="colorPrimaryDark">@color/black</item>
+    </style>
+    <style name="gradientbtn">
+        <item name="android:background">@drawable/gradientbtn</item>
+    </style>
+</resources>
