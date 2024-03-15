@@ -1,0 +1,8 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.FoodExpress" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+    <style name="Theme.FoodExpress" parent="Base.Theme.FoodExpress" />
+</resources>

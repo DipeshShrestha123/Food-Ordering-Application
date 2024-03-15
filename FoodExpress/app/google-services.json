@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1041702169807",
+    "firebase_url": "https://foodexpress-bcd9d-default-rtdb.firebaseio.com",
+    "project_id": "foodexpress-bcd9d",
+    "storage_bucket": "foodexpress-bcd9d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041702169807:android:3a16f30d4d5f9853879bba",
+        "android_client_info": {
+          "package_name": "com.example.foodexpress"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041702169807-o7srmva6nplkin4l092bqotjapf6samm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.foodexpress",
+            "certificate_hash": "68c3957b39bd6c53fa5a255728b49e013a1b9ae0"
+          }
+        },
+        {
+          "client_id": "1041702169807-cl52rk67iilp9fbu9j9oegt2ui1v0l7n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgw9wkzULDmSVNoDDYj5Ewiq11MCmmUjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041702169807-b0eejefms5go9a4peglbu2hbahbfkckd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

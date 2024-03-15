@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FoodExpress</string>
+    <string name="your_web_client_id">1041702169807-cl52rk67iilp9fbu9j9oegt2ui1v0l7n.apps.googleusercontent.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="facebook_app_id">5367497070193933</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">18753958f272102f8e7909369e606be6</string>
+</resources>
