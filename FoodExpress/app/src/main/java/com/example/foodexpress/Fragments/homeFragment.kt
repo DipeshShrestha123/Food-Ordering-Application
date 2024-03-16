@@ -14,7 +14,9 @@ import com.denzcoskun.imageslider.models.SlideModel
 import com.example.foodexpress.R
 import com.example.foodexpress.adapter.FoodcategoriesAdapter
 import com.example.foodexpress.adapter.PopularItemsAdapter
+import com.example.foodexpress.constants
 import com.example.foodexpress.databinding.FragmentHomeBinding
+import com.example.foodexpress.model.categorie
 
 class homeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -27,13 +29,31 @@ class homeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater,container,false)
+        imageslider()
+        setAllCategories()
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val imageList = ArrayList<SlideModel>()
+    private fun setAllCategories(){
+        val categorieList = ArrayList<categorie>()
 
+        for( i in 0 until constants.foodcategoriesname.size ){
+            categorieList.add(categorie(constants.foodcategoriesname[i] , constants.foodcategoriesicon[i]))
+        }
+        binding.foodcategorierecyclerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
+        binding.foodcategorierecyclerView.adapter = FoodcategoriesAdapter(categorieList, ::onCategorieIconClicked)
+
+    }
+    private fun onCategorieIconClicked(categorie: categorie){
+        getCategorieProduct(categorie.foodcategoriesitems)
+    }
+
+    private fun getCategorieProduct(foodcategoriesitems: String?) {
+
+    }
+
+    private fun imageslider(){
+        val imageList = ArrayList<SlideModel>()
         imageList.add(SlideModel(R.drawable.banner1, ScaleTypes.FIT))
         imageList.add(SlideModel(R.drawable.banner2, ScaleTypes.FIT))
         imageList.add(SlideModel(R.drawable.banner3, ScaleTypes.FIT))
@@ -51,13 +71,10 @@ class homeFragment : Fragment() {
                 Toast.makeText(requireContext(),"Selected item",Toast.LENGTH_SHORT).show()
             }
         })
+    }
 
-        val foodcategoriesname = listOf("All Food","Pizza","Bakery","Sea Food")
-        val foodcategoriesimg = listOf(R.drawable.allfood,R.drawable.pizza,R.drawable.cake,R.drawable.shrimp)
-        val foodcategorieadapter = FoodcategoriesAdapter(foodcategoriesname,foodcategoriesimg)
-        binding.foodcategorierecyclerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
-        binding.foodcategorierecyclerView.adapter = foodcategorieadapter
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val popularitemname = listOf("Herbal Pancake","Salad","Ice Cream","Curry","French Fry","Kathi Roll","Oats")
         val popularitemimg = listOf(R.drawable.menu1,R.drawable.menu2,R.drawable.menu3,R.drawable.menu4,R.drawable.menu5,R.drawable.menu6,R.drawable.menu7)

@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.example.foodexpress.Admin.adminsignup
 import com.example.foodexpress.databinding.ActivitySignupBinding
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
@@ -51,45 +52,24 @@ class SignupActivity : AppCompatActivity() {
         binding.HaveAccount.setOnClickListener {
             val intent = Intent(this, Signin::class.java)
             startActivity(intent)
+            finish()
         }
 
 
         binding.eye.setOnClickListener {
-            isPasswordVisible = !isPasswordVisible
-            if (isPasswordVisible) {
-                // Show password
-                binding.eye.setImageResource(R.drawable.eye)
-                binding.SignupPassword.transformationMethod = null
-            } else {
-                binding.SignupPassword.transformationMethod =
-                    PasswordTransformationMethod.getInstance()
-                binding.eye.setImageResource(R.drawable.eye_hide)
-            }
-
-            // Move the cursor to the end of the text to avoid issues with visibility toggling
-            binding.SignupPassword.setSelection(binding.SignupPassword.text.length)
+            passwordIconChanger()
+        }
+        binding.sellertext.setOnClickListener {
+            val intent = Intent(this, adminsignup::class.java)
+            startActivity(intent)
+            finish()
         }
 
 
         binding.SignupBtn.setOnClickListener {
-            val userid = binding.SignupName.text.toString()
-            val email = binding.SignupEmail.text.toString()
-            val password = binding.SignupPassword.text.toString()
-            if (userid.isBlank() || email.isBlank() || password.isBlank()) {
-                Toast.makeText(this, "Fill All The Details", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-
-            firebaseAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
-                Toast.makeText(this, "Sign Up Successful", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
-            }.addOnFailureListener {
-                Toast.makeText(this, "Sign Up Failed", Toast.LENGTH_SHORT).show()
-            }
+            signupUsingEmail()
         }
+
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.your_web_client_id)).requestEmail().build()
         googleSignInClient = GoogleSignIn.getClient(this,googleSignInOptions)
 
@@ -126,6 +106,59 @@ class SignupActivity : AppCompatActivity() {
 
 
 
+    }
+    private fun isValidPassword(password: String): Boolean {
+        val hasUpperCase = password.any { it.isUpperCase() }
+        val hasLowerCase = password.any { it.isLowerCase() }
+        val hasDigit = password.any { it.isDigit() }
+        val hasSpecialChar = password.any { it.isSpecialChar() }
+        val minLength = 8
+
+        return password.length >= minLength &&
+                hasUpperCase && hasLowerCase && hasDigit && hasSpecialChar
+    }
+
+    private fun Char.isSpecialChar(): Boolean {
+        return !this.isLetterOrDigit() && !this.isWhitespace()
+    }
+
+    private fun signupUsingEmail() {
+        val userid = binding.SignupName.text.toString()
+        val email = binding.SignupEmail.text.toString()
+        val password = binding.SignupPassword.text.toString()
+        if (userid.isBlank() || email.isBlank() || password.isBlank()) {
+            Toast.makeText(this, "Fill All The Details", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (!isValidPassword(password)){
+            Toast.makeText(this, "Password is Weak", Toast.LENGTH_SHORT).show()
+        }
+        else{
+            firebaseAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
+                Toast.makeText(this, "Sign Up Successful", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }.addOnFailureListener {
+                Toast.makeText(this, "Sign Up Failed", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun passwordIconChanger() {
+        isPasswordVisible = !isPasswordVisible
+        if (isPasswordVisible) {
+            // Show password
+            binding.eye.setImageResource(R.drawable.eye)
+            binding.SignupPassword.transformationMethod = null
+        } else {
+            binding.SignupPassword.transformationMethod =
+                PasswordTransformationMethod.getInstance()
+            binding.eye.setImageResource(R.drawable.eye_hide)
+        }
+
+        // Move the cursor to the end of the text to avoid issues with visibility toggling
+        binding.SignupPassword.setSelection(binding.SignupPassword.text.length)
     }
 
     private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){

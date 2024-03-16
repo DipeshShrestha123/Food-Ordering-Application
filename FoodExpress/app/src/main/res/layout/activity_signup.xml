@@ -195,7 +195,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/SignupFbbtn"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="@+id/SignupGooglebtn"
         app:layout_constraintTop_toBottomOf="@+id/SignupGooglebtn"
         app:layout_constraintVertical_bias="0" />
@@ -205,11 +205,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Already have an Account?"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:layout_marginTop="10dp"
         android:textColor="@color/textgreen"
         app:layout_constraintEnd_toEndOf="@+id/SignupBtn"
         app:layout_constraintStart_toStartOf="@+id/SignupBtn"
         app:layout_constraintTop_toBottomOf="@+id/SignupBtn" />
+
+    <TextView
+        android:id="@+id/sellertext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Want To Become Seller?"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/textgreen"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/SignupBtn"
+        app:layout_constraintStart_toStartOf="@+id/SignupBtn"
+        app:layout_constraintTop_toBottomOf="@+id/HaveAccount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

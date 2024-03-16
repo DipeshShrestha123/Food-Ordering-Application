@@ -46,24 +46,11 @@ class Signin : AppCompatActivity() {
         binding.DontHaveAccount.setOnClickListener{
             val intent = Intent(this,SignupActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         binding.LoginBtn.setOnClickListener{
-            val email = binding.LoginEmail.text.toString()
-            val password = binding.Password.text.toString()
-
-            if (email.isBlank() || password.isBlank()) {
-                Toast.makeText(this, "Fill All The Details", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            firebaseAuth.signInWithEmailAndPassword(email,password).addOnSuccessListener {
-                Toast.makeText(this,"Sign in Successfully",Toast.LENGTH_SHORT).show()
-                val intent = Intent(this,StartScreen::class.java)
-                startActivity(intent)
-                finish()
-            }.addOnFailureListener{
-                Toast.makeText(this,"Registered Yourself",Toast.LENGTH_SHORT).show()
-            }
+            signinUsingEmail()
         }
 
         binding.ResetPassword.setOnClickListener {
@@ -114,9 +101,41 @@ class Signin : AppCompatActivity() {
 
     }
 
+    private fun signinUsingEmail() {
+        val email = binding.LoginEmail.text.toString()
+        val password = binding.Password.text.toString()
+        if (email.isBlank() || password.isBlank()) {
+            Toast.makeText(this, "Fill All The Details", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if(!isValidPassword(password)){
+            Toast.makeText(this, "Password is Weak", Toast.LENGTH_SHORT).show()
+        }
+        else{
+            firebaseAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
+                Toast.makeText(this, "Sign Up Successful", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, StartScreen::class.java)
+                startActivity(intent)
+                finish()
+            }.addOnFailureListener {
+                Toast.makeText(this, "Sign Up Failed", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+    private fun isValidPassword(password: String): Boolean {
+        val hasUpperCase = password.any { it.isUpperCase() }
+        val hasLowerCase = password.any { it.isLowerCase() }
+        val hasDigit = password.any { it.isDigit() }
+        val hasSpecialChar = password.any { it.isSpecialChar() }
+        val minLength = 8
 
+        return password.length >= minLength &&
+                hasUpperCase && hasLowerCase && hasDigit && hasSpecialChar
+    }
 
-
+    private fun Char.isSpecialChar(): Boolean {
+        return !this.isLetterOrDigit() && !this.isWhitespace()
+    }
     private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
             result ->
         run {

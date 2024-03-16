@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AdminFragments.adminsignupFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/BussinessNameLayout"
+        android:layout_width="325dp"
+        android:layout_height="57dp"
+        app:hintEnabled="false"
+        android:layout_marginTop="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/BussinessName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/inputlayout"
+            android:drawableStart="@drawable/user_plus"
+            android:drawablePadding="10dp"
+            android:hint="BussinessName"
+            android:inputType="text"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColorHint="#757271" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/BussinessAddresslayout"
+        android:layout_width="325dp"
+        android:layout_height="57dp"
+        app:hintEnabled="false"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/BussinessNameLayout"
+        app:layout_constraintStart_toStartOf="@+id/BussinessNameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/BussinessNameLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/BussinessAddress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/inputlayout"
+            android:drawableStart="@drawable/mail"
+            android:drawablePadding="10dp"
+            android:hint="Bussiness Address"
+            android:inputType="text"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColorHint="#757271" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="325dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="10dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="@+id/BussinessAddresslayout"
+        app:layout_constraintTop_toBottomOf="@+id/BussinessAddresslayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/AdminLoginEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/inputlayout"
+            android:drawableStart="@drawable/mail"
+            android:drawablePadding="10dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColorHint="#757271" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="325dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/inputlayout"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        android:orientation="horizontal"
+        >
+
+
+        <EditText
+            android:id="@+id/SignupPassword"
+            android:layout_width="290dp"
+            android:layout_height="57dp"
+            android:drawableLeft="@drawable/lock"
+            android:drawablePadding="10dp"
+            android:background="@null"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColorHint="#757271"
+            />
+
+        <ImageView
+            android:id="@+id/eye"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/eye_hide"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/AdminSignupBtn"
+        android:layout_width="152dp"
+        android:layout_height="57dp"
+        android:background="@drawable/gradientbtn"
+        android:text="Sign up"
+        android:textColor="@color/white"
+        android:layout_marginTop="18dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/linear"
+        app:layout_constraintStart_toStartOf="@+id/linear"
+        app:layout_constraintTop_toBottomOf="@+id/linear"
+         />
+
+    <TextView
+        android:id="@+id/gotobuyer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Want to become Buyer?"
+        android:textColor="@color/textgreen"
+        android:textSize="20sp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/linear"
+        app:layout_constraintStart_toStartOf="@+id/linear"
+        app:layout_constraintTop_toBottomOf="@+id/AdminSignupBtn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
