@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:ignore="HardcodedText"
-    tools:context=".AdminFragments.adminsigninFragment">
+    tools:context=".adminfragments.adminsigninFragment">
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:text="Want to become Buyer?"
         android:textColor="@color/textgreen"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="@+id/linear"
         app:layout_constraintStart_toStartOf="@+id/linear"

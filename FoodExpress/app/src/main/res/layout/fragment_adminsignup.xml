@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:ignore="HardcodedText"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".AdminFragments.adminsignupFragment">
+    tools:context=".adminfragments.adminsignupFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/BussinessNameLayout"
@@ -23,10 +23,10 @@
             android:layout_height="match_parent"
             android:background="@drawable/inputlayout"
             android:drawableStart="@drawable/user_plus"
-            android:drawablePadding="10dp"
+            android:drawablePadding="20dp"
             android:hint="BussinessName"
             android:inputType="text"
-            android:paddingStart="20dp"
+            android:paddingStart="21dp"
             android:paddingEnd="20dp"
             android:textColorHint="#757271" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -46,11 +46,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/inputlayout"
-            android:drawableStart="@drawable/mail"
-            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/address"
+            android:drawablePadding="20dp"
             android:hint="Bussiness Address"
             android:inputType="text"
-            android:paddingStart="20dp"
+            android:paddingStart="18dp"
             android:paddingEnd="20dp"
             android:textColorHint="#757271" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -70,49 +70,38 @@
             android:layout_height="match_parent"
             android:background="@drawable/inputlayout"
             android:drawableStart="@drawable/mail"
-            android:drawablePadding="10dp"
+            android:drawablePadding="20dp"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:textColorHint="#757271" />
     </com.google.android.material.textfield.TextInputLayout>
-    <LinearLayout
-        android:id="@+id/linear"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textpasswordLayout"
         android:layout_width="325dp"
         android:layout_height="57dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/inputlayout"
+        android:layout_marginTop="10dp"
+        app:hintEnabled="false"
+        app:startIconDrawable="@drawable/lock"
+        app:startIconTint="@color/black"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/black"
+        android:paddingStart="10dp"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        android:orientation="horizontal"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
-
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/SignupPassword"
-            android:layout_width="290dp"
-            android:layout_height="57dp"
-            android:drawableLeft="@drawable/lock"
-            android:drawablePadding="10dp"
-            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/inputlayout"
             android:hint="Password"
             android:inputType="textPassword"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:textColorHint="#757271"
-            />
-
-        <ImageView
-            android:id="@+id/eye"
-            android:layout_width="25dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/eye_hide"
-            android:textAlignment="center" />
-
-    </LinearLayout>
-
+            android:textColorHint="#757271" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -124,9 +113,9 @@
         android:textColor="@color/white"
         android:layout_marginTop="18dp"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/linear"
-        app:layout_constraintStart_toStartOf="@+id/linear"
-        app:layout_constraintTop_toBottomOf="@+id/linear"
+        app:layout_constraintEnd_toEndOf="@+id/textpasswordLayout"
+        app:layout_constraintStart_toStartOf="@+id/textpasswordLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textpasswordLayout"
          />
 
     <TextView
@@ -135,10 +124,10 @@
         android:layout_height="wrap_content"
         android:text="Want to become Buyer?"
         android:textColor="@color/textgreen"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/linear"
-        app:layout_constraintStart_toStartOf="@+id/linear"
+        app:layout_constraintEnd_toEndOf="@+id/textpasswordLayout"
+        app:layout_constraintStart_toStartOf="@+id/textpasswordLayout"
         app:layout_constraintTop_toBottomOf="@+id/AdminSignupBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -112,7 +112,7 @@ class Signin : AppCompatActivity() {
             Toast.makeText(this, "Password is Weak", Toast.LENGTH_SHORT).show()
         }
         else{
-            firebaseAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
+            firebaseAuth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
                 Toast.makeText(this, "Sign Up Successful", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, StartScreen::class.java)
                 startActivity(intent)

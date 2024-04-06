@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/usernavgraph.xml"
+    app:startDestination="@id/startScreen">
+
+    <activity
+        android:id="@+id/startScreen"
+        android:name="com.example.foodexpress.StartScreen"
+        android:label="activity_start_screen"
+        tools:layout="@layout/activity_start_screen" />
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="com.example.foodexpress.Fragments.homeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/searchFragment2"
+        android:name="com.example.foodexpress.Fragments.searchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/cartFragment2"
+        android:name="com.example.foodexpress.Fragments.cartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/historyFragment2"
+        android:name="com.example.foodexpress.Fragments.historyFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+</navigation>

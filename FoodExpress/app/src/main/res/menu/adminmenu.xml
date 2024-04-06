@@ -5,7 +5,7 @@
         android:icon="@drawable/home"
         />
     <item android:title="Add Product"
-        android:icon="@drawable/searchimg"
+        android:icon="@drawable/addproduct"
         android:id="@+id/adminAddProductFragment"
         />
 </menu>

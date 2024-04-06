@@ -3,8 +3,8 @@ package com.example.foodexpress.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.foodexpress.AdminFragments.adminsigninFragment
-import com.example.foodexpress.AdminFragments.adminsignupFragment
+import com.example.foodexpress.adminfragments.adminsigninFragment
+import com.example.foodexpress.adminfragments.adminsignupFragment
 
 class TablayoutAdapter(fa:FragmentActivity) : FragmentStateAdapter(fa) {
     override fun getItemCount(): Int {

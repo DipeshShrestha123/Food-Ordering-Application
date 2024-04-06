@@ -16,13 +16,15 @@
         tools:targetApi="31">
         <activity
             android:name=".Admin.adminmainhome"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false" />
         <activity
-            android:name=".AdminFragments.adminhomeactivity"
+            android:name=".adminfragments.adminHomeFragment"
             android:exported="false" />
         <activity
             android:name=".Admin.adminsignup"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -57,7 +59,8 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" />

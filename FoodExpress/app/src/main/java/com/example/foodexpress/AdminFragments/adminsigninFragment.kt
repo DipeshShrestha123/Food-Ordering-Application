@@ -1,4 +1,4 @@
-package com.example.foodexpress.AdminFragments
+package com.example.foodexpress.adminfragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -55,8 +55,8 @@ class adminsigninFragment : Fragment() {
             Toast.makeText(requireContext(), "Password is Weak", Toast.LENGTH_SHORT).show()
         }
         else{
-            firebaseAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
-                Toast.makeText(requireContext(), "Sign Up Successful", Toast.LENGTH_SHORT).show()
+            firebaseAuth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
+                Toast.makeText(requireContext(), "Sign in Successful", Toast.LENGTH_SHORT).show()
                 val intent = Intent(requireContext(), adminmainhome::class.java)
                 startActivity(intent)
                 requireActivity().finish()

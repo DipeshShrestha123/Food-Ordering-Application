@@ -15,28 +15,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        <androidx.constraintlayout.widget.ConstraintLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="14dp"
-                app:cardCornerRadius="100dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/popularfoodimg"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="14dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     android:contentDescription="userlogo"
                     android:scaleType="fitCenter"
                     android:src="@drawable/menu1"
                      />
-            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/popularfoodname"
@@ -46,9 +41,9 @@
                 android:textColor="@color/black"
                 android:text="Herbal Pancake"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/cardView"
-                app:layout_constraintStart_toStartOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+                app:layout_constraintEnd_toEndOf="@+id/popularfoodimg"
+                app:layout_constraintStart_toStartOf="@+id/popularfoodimg"
+                app:layout_constraintTop_toBottomOf="@+id/popularfoodimg" />
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -81,9 +76,9 @@
                 android:layout_height="18dp"
                 android:src="@drawable/rupee"
                 android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="@+id/cardView"
+                app:layout_constraintEnd_toEndOf="@+id/popularfoodimg"
                 app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="@+id/cardView"
+                app:layout_constraintStart_toStartOf="@+id/popularfoodimg"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
             <TextView

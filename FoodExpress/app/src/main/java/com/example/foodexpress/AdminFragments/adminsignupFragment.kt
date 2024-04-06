@@ -1,19 +1,16 @@
-package com.example.foodexpress.AdminFragments
+package com.example.foodexpress.adminfragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.method.PasswordTransformationMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.foodexpress.Admin.adminmainhome
-import com.example.foodexpress.R
 import com.example.foodexpress.Signin
 import com.example.foodexpress.databinding.FragmentAdminsignupBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 
 class adminsignupFragment : Fragment() {
     private lateinit var binding:FragmentAdminsignupBinding
@@ -32,9 +29,6 @@ class adminsignupFragment : Fragment() {
         firebaseAuth = FirebaseAuth.getInstance()
         binding.AdminSignupBtn.setOnClickListener{
             signupUsingEmail()
-        }
-        binding.eye.setOnClickListener {
-            passwordIconChanger()
         }
         binding.gotobuyer.setOnClickListener {
             val intent = Intent(requireContext(),Signin::class.java)
@@ -70,22 +64,6 @@ class adminsignupFragment : Fragment() {
         }
     }
 
-
-    private fun passwordIconChanger() {
-        isPasswordVisible = !isPasswordVisible
-        if (isPasswordVisible) {
-            // Show password
-            binding.eye.setImageResource(R.drawable.eye)
-            binding.SignupPassword.transformationMethod = null
-        } else {
-            binding.SignupPassword.transformationMethod =
-                PasswordTransformationMethod.getInstance()
-            binding.eye.setImageResource(R.drawable.eye_hide)
-        }
-
-        // Move the cursor to the end of the text to avoid issues with visibility toggling
-        binding.SignupPassword.setSelection(binding.SignupPassword.text.length)
-    }
     private fun isValidPassword(password: String): Boolean {
         val hasUpperCase = password.any { it.isUpperCase() }
         val hasLowerCase = password.any { it.isLowerCase() }

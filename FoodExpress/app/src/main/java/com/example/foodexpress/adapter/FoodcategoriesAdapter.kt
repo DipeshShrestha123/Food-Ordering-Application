@@ -7,6 +7,7 @@ import com.example.foodexpress.model.categorie
 
 class FoodcategoriesAdapter(private val categorielist: ArrayList<categorie>,
                             val onCategorieIconClicked: (categorie) -> Unit): RecyclerView.Adapter<FoodcategoriesAdapter.FoodCategorieViewHolder>(){
+
     class FoodCategorieViewHolder (val binding: FoodcategoriesBinding) : RecyclerView.ViewHolder(binding.root)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodCategorieViewHolder {
         return FoodCategorieViewHolder(FoodcategoriesBinding.inflate(LayoutInflater.from(parent.context),parent,false))
